@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+}
+// прижимаем footer
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 1.2;
+  color: $default;
+  @extend %quicksand-500;
+}
+
+.main {
+  flex-grow: 1;
+}
+// прижимаем footer
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+a {
+  font-size: 16px;
+  line-height: 26px;
+  color: $default;
+  @extend %quicksand-500;
+}
