@@ -33,6 +33,7 @@ $bg: #f6f6f6;
   text-transform: uppercase;
   color: #f6f6f6;
   background-color: $accent;
+  letter-spacing: 0.2em;
   box-shadow: 0 7px 20px 0px rgba(255, 17, 48, 0.3);
   @extend %roboto-400;
 }
