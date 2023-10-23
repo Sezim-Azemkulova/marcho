@@ -144,6 +144,7 @@
     @extend %btn;
     border: none;
     cursor: pointer;
+    letter-spacing: 0.05em;
   }
 }
 
@@ -385,6 +386,137 @@
     display: inline-block;
     @extend %btn;
   }
+}
+
+.product {
+  padding: 105px 0 120px;
+  text-align: center;
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 45px 30px;
+  }
+  &__link {
+    display: inline-block;
+    margin-top: 55px;
+    padding: 14px 27px;
+    text-align: center;
+    border: 1px solid #fe3e57;
+    line-height: 26px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $title;
+    @extend %roboto-400;
+  }
+}
+
+.product-item {
+  max-width: 370px;
+  //для того, чтобы картинка любого размера всегда принимала размер 370
+  text-align: center;
+  &__img-box {
+    position: relative;
+    margin-bottom: 25px;
+    height: 370px;
+    overflow: hidden;
+    // задаем выплывающие иконки
+  }
+  &__link-box {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    // растягиваем на всю ширину блок
+    margin: 0 auto;
+    // ставим по центру блок с фиксированной шириной
+    width: 220px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 26px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // центрируем иконки
+    transform: translateY(300%);
+    transition: translate 0.3s;
+    // задаем выплывающие иконки
+  }
+  &__images {
+    object-fit: cover;
+    // как <img> или <video> будет подстраиваться под заданные размеры. Работает при заданной ширине или высоте
+  }
+  &:hover {
+    .product-item__link-box {
+      transform: translateY(0);
+      // задаем выплывающие иконки
+    }
+  }
+}
+.product-item {
+  &__link--line::before,
+  &__link--line:after {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 1px;
+    background-color: #ececec;
+    top: 10px;
+  }
+  &__link--line::before {
+    left: 70px;
+  }
+  &__link--line::after {
+    right: 70px;
+  }
+  &__link {
+    display: inherit;
+    //чтобы иконки встали ровно по центру
+    path {
+      transition: all 0.3s;
+    }
+  }
+  &__link:hover {
+    path {
+      fill: $accent;
+    }
+  }
+  &__title {
+    padding: 15px 0 20px;
+    font-size: 22px;
+    color: $title;
+    @extend %roboto-400;
+  }
+  &__price {
+    display: flex;
+    justify-content: center;
+    @extend %roboto-500;
+  }
+  &__new-price {
+    padding: 0 12px;
+    color: $title;
+  }
+  &__old-price {
+    padding: 0 12px;
+    font-weight: 400;
+    text-decoration: line-through;
+  }
+  &--sale {
+    .product-item__img-box::before {
+      content: "SALE";
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      padding: 12px 12px;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      @extend %btn;
+      @extend %roboto-400;
+    }
+  }
+}
+
+.star {
+  margin: 0 auto;
 }
 @import "media";
 // media запросы
